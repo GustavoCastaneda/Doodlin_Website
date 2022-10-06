@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
-import imagen1 from '/Users/efrengustavoadolfocastanedaheras/Desktop/prueba_minting_site/boredape-minting-dapp-main/public/images/imagen1.png'
+import imagen1 from '/Users/mac1/Desktop/Colibri/Clientes/Doodlin/minting_site/Doodlin_Website/public/images/imagen1.png'
 
 import { config } from '../dapp.config'
 
@@ -26,23 +26,7 @@ export default function Home() {
           </Link>
         </div>
       </header>
-      <div className='text-gray-300'>
-        {/* <h1 className="flex items-center container mx-auto max-w-5xl justify-center h-full bg-gray-400 font-coiny uppercase font-bold text-3xl md:text-3xl mt-3">
-              Public Sale
-        </h1> */}
-        <div class="imagen text-5xl flex items-center container mx-auto justify-center h-full ">
-        <Image src={imagen1} />
-        </div>
-        <p className='text-5xl flex items-center container mx-auto justify-center h-full pt-11'>
-          <span>250</span> /1000
-        </p>
-        <h3 className=' text-[40px] flex items-center container mx-auto justify-center h-full pt-5'>
-          0.08 ETH
-        </h3>
-        <h4 className=' text-[20px] flex items-center container mx-auto justify-center h-full pt-6'>
-          (Exluding gas fees)
-        </h4>
-      </div>
+      
       <footer class="fixed bottom-0 left-0 z-20 p-4 w-full bg-transparent  md:flex md:items-center md:justify-between md:p-6 ">
         <span class="text-sm text-black sm:text-center">© 2022 <a href="https://linktr.ee/DoodlinTown.Omg" class="hover:underline">DOODLIN NFT</a>. All Rights Reserved.
         </span>

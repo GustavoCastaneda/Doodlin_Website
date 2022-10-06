@@ -11,6 +11,12 @@ import {
   presaleMint,
   publicMint
 } from '../utils/interact'
+import imagen1 from '/Users/mac1/Desktop/Colibri/Clientes/Doodlin/minting_site/Doodlin_Website/public/images/imagen1.png'
+import Image from 'next/image'
+
+
+
+
 
 export default function Mint() {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet()
@@ -23,7 +29,6 @@ export default function Mint() {
   const [paused, setPaused] = useState(false)
   const [isPublicSale, setIsPublicSale] = useState(false)
   const [isPreSale, setIsPreSale] = useState(false)
-
   const [status, setStatus] = useState(null)
   const [mintAmount, setMintAmount] = useState(1)
   const [isMinting, setIsMinting] = useState(false)
@@ -122,57 +127,83 @@ export default function Mint() {
   }
 
   return (
-    <div className="min-h-screen h-full w-full overflow-hidden flex flex-col items-center justify-center bg-brand-background ">
+    <div className="custom-image bg-cover min-h-screen h-full w-full overflow-hidden flex flex-col items-center justify-center bg-brand-background ">
       <div className="relative w-full h-full flex flex-col items-center justify-center">
-        <img
-          src="/images/blur.jpeg"
-          className="animate-pulse-slow absolute inset-auto block w-full min-h-screen object-cover"
-        />
+       <div> 
+          <header className="min-w-full text-gray-800 py-5 px-4 md:px-0 items-center">
+            <div className="flex items-center container mx-auto max-w-5xl justify-center h-full">
+              {/* Logo */}
+                <a className="font-coiny text-xl md:text-3xl font-bold text-center ">
+                  <span className="text-[40px] text-extrabold bg-gradient-to-br from-brand-blue to-brand-purple pr-2 bg-clip-text text-transparent">
+                    LOGO
+                  </span>
+                </a>
+            </div>
+          </header>
+        </div>
 
         <div className="flex flex-col items-center justify-center h-full w-full px-2 md:px-10">
-          <div className="relative z-1 md:max-w-3xl w-full bg-gray-900/90 filter backdrop-blur-sm py-4 rounded-md px-2 md:px-10 flex flex-col items-center">
-            {wallet && (
-              <button
-                className="absolute right-4 bg-indigo-600 transition duration-200 ease-in-out font-chalk border-2 border-[rgba(0,0,0,1)] shadow-[0px_3px_0px_0px_rgba(0,0,0,1)] active:shadow-none px-4 py-2 rounded-md text-sm text-white tracking-wide uppercase"
-                onClick={() =>
-                  disconnect({
-                    label: wallet.label
-                  })
-                }
-              >
-                Disconnect
-              </button>
-            )}
-            <h1 className=" font-coiny uppercase font-bold text-3xl md:text-4xl bg-gradient-to-br  from-brand-green to-brand-blue bg-clip-text text-transparent mt-3">
+          <div className="relative z-1 md:max-w-3xl w-full fondo2 filter backdrop-blur-sm py-4 rounded-2xl px-2 md:px-10 flex flex-col items-center">
+          
+            {/* <h1 className=" font-coiny uppercase font-bold text-3xl md:text-4xl bg-gradient-to-br  from-brand-green to-brand-blue bg-clip-text text-transparent mt-3">
               {paused ? 'Paused' : isPreSale ? 'Pre-Sale' : 'Public Sale'}
-            </h1>
-            <h3 className="text-sm text-pink-200 tracking-widest">
-              {wallet?.accounts[0]?.address
-                ? wallet?.accounts[0]?.address.slice(0, 8) +
-                  '...' +
-                  wallet?.accounts[0]?.address.slice(-4)
-                : ''}
-            </h3>
+            </h1> */}
 
-            <div className="flex flex-col md:flex-row md:space-x-14 w-full mt-10 md:mt-14">
+            <div className="pb-10 flex flex-col md:flex-row md:space-x-14 w-full mt-10 md:mt-14">
               <div className="relative w-full">
                 <div className="font-coiny z-10 absolute top-2 left-2 opacity-80 filter backdrop-blur-lg text-base px-4 py-2 bg-black border border-brand-purple rounded-md flex items-center justify-center text-white font-semibold">
                   <p>
-                    <span className="text-brand-pink">{totalMinted}</span> /{' '}
-                    {maxSupply}
+                    <span className="text-brand-pink">100</span> /{' '}
+                    10000
                   </p>
                 </div>
 
-                <img
-                  src="/images/13.png"
-                  className="object-cover w-full sm:h-[280px] md:w-[250px] rounded-md"
+                <Image
+                  src={imagen1}
+                  className="object-cover w-full sm:h-[280px] md:w-[250px] rounded-2xl"
                 />
               </div>
 
               <div className="flex flex-col items-center w-full px-4 mt-16 md:mt-0">
-                <div className="font-coiny flex items-center justify-between w-full">
+                  <div className="font-coiny z-10 absolute top-2 text-base px-4 py-2 bg-transparent border-4 border-gray-700 rounded-xl flex items-center justify-center text-white font-semibold">
+                        <p className="text-brand-pink">
+                          <span className="text-brand-pink">100</span> /{' '}
+                          10000
+                        </p>
+                  </div>                
+                  {/* <div className="font-coiny z-10 absolute top-2  opacity-80 filter backdrop-blur-lg text-base px-4 py-2 bg-black border border-brand-purple rounded-md flex items-center justify-center text-white font-semibold">
+                      <p>
+                        <span className="text-brand-pink">100</span> /{' '}
+                        10000
+                      </p>
+                  </div> */}
+                <div className="border-4 divide-x-4 divide-gray-700 rounded-xl border-gray-700 font-coiny flex items-center justify-between w-full">
                   <button
-                    className="w-14 h-10 md:w-16 md:h-12 flex items-center justify-center text-brand-background hover:shadow-lg bg-gray-300 font-bold rounded-md"
+                      className="w-14 h-10 md:w-16 md:h-12 flex items-center justify-center text-brand-background hover:shadow-lg bg-transparent font-bold"
+                      onClick={decrementMintAmount}
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-6 w-6 md:h-8 md:w-8"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M18 12H6"
+                        />
+                      </svg>
+                    </button>
+                  
+
+                  <p className="flex items-center justify-center flex-1 grow text-center font-bold text-white text-3xl md:text-4xl">
+                    {mintAmount}
+                  </p>
+                  <button
+                    className="w-14 h-10 md:w-16 md:h-12 flex items-center justify-center text-brand-background hover:shadow-lg bg-transparent font-bold"
                     onClick={incrementMintAmount}
                   >
                     <svg
@@ -190,38 +221,14 @@ export default function Mint() {
                       />
                     </svg>
                   </button>
-
-                  <p className="flex items-center justify-center flex-1 grow text-center font-bold text-brand-pink text-3xl md:text-4xl">
-                    {mintAmount}
-                  </p>
-
-                  <button
-                    className="w-14 h-10 md:w-16 md:h-12 flex items-center justify-center text-brand-background hover:shadow-lg bg-gray-300 font-bold rounded-md"
-                    onClick={decrementMintAmount}
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-6 w-6 md:h-8 md:w-8"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M18 12H6"
-                      />
-                    </svg>
-                  </button>
                 </div>
 
-                <p className="text-sm text-pink-200 tracking-widest mt-3">
+                <p className="text-sm text-white tracking-widest mt-3 ">
                   Max Mint Amount: {maxMintAmount}
                 </p>
 
-                <div className="border-t border-b py-4 mt-16 w-full">
-                  <div className="w-full text-xl font-coiny flex items-center justify-between text-brand-yellow">
+                <div className="border-t border-b py-4 mt-9 w-full">
+                  <div className="w-full text-xl font-coiny flex items-center justify-between text-white">
                     <p>Total</p>
 
                     <div className="flex items-center space-x-3">
@@ -251,7 +258,7 @@ export default function Mint() {
                   </button>
                 ) : (
                   <button
-                    className="font-coiny mt-12 w-full bg-gradient-to-br from-brand-purple to-brand-pink shadow-lg px-6 py-3 rounded-md text-2xl text-white hover:shadow-pink-400/50 mx-4 tracking-wide uppercase"
+                    className="font-coiny mt-12 w-full bg-transparent border-4 border-gray-700 shadow-lg px-6 py-3 rounded-2xl text-2xl text-white hover:shadow-pink-400/50 mx-4 tracking-wide uppercase"
                     onClick={() => connect()}
                   >
                     Connect Wallet
@@ -273,20 +280,7 @@ export default function Mint() {
               </div>
             )}
 
-            {/* Contract Address */}
-            <div className="border-t border-gray-800 flex flex-col items-center mt-10 py-2 w-full">
-              <h3 className="font-coiny text-2xl text-brand-pink uppercase mt-6">
-                Contract Address
-              </h3>
-              <a
-                href={`https://rinkeby.etherscan.io/address/${config.contractAddress}#readContract`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 mt-4"
-              >
-                <span className="break-all ...">{config.contractAddress}</span>
-              </a>
-            </div>
+          
           </div>
         </div>
       </div>
