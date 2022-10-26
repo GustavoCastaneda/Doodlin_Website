@@ -11,10 +11,10 @@ import {
   presaleMint,
   publicMint
 } from '../utils/interact'
-import imagen1 from '/Users/mac1/Desktop/Colibri/Clientes/Doodlin/minting_site/Doodlin_Website/public/images/imagen1.png'
+import imagen1 from '/Volumes/Mac/Users/mac1/Desktop/Colibri/Clientes/Doodlin/minting_site/Doodlin_Website/public/images/imagen1.png'
 import Image from 'next/image'
 
-
+ 
 
 
 

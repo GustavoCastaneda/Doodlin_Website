@@ -32,9 +32,9 @@ const initOnboard = init({
     //   rpcUrl: 'https://ropsten.infura.io/v3/ababf9851fd845d0a167825f97eeb12b'
     // },
     {
-      id: '0x4',
+      id: '0x5',
       token: 'rETH',
-      label: 'Ethereum Rinkeby Testnet',
+      label: 'Goerli Testnet',
       rpcUrl: RPC_URL
     }
     // {
@@ -45,7 +45,7 @@ const initOnboard = init({
     // }
   ],
   appMetadata: {
-    name: 'BoredApes',
+    name: 'Doodlin Town',
     icon: ApeIcon,
     description: 'We are some bored apes',
     recommendedInjectedWallets: [
